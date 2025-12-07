@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Indu Gupta - Scientist & Researcher</title>
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #2a8fb0;
+            --accent-color: #e8751a;
+            --bg-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --light-text: #666;
+            --border-color: #ddd;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        header .credentials {
+            font-size: 1em;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--white);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        section h3 {
+            color: var(--secondary-color);
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .profile-summary {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .expertise-card {
+            background: linear-gradient(135deg, rgba(26, 95, 122, 0.05) 0%, rgba(42, 143, 176, 0.05) 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .expertise-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .expertise-card li {
+            padding: 6px 0;
+            color: var(--light-text);
+        }
+
+        .expertise-card li:before {
+            content: "▸ ";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .duration {
+            color: var(--light-text);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .experience-item li {
+            padding: 8px 0;
+            color: var(--text-color);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 8px;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d46a0a 100%);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px 5px 5px 0;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .membership-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .membership-item {
+            background: linear-gradient(135deg, rgba(232, 117, 26, 0.05) 0%, rgba(232, 117, 26, 0.1) 100%);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .membership-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+
+        .contact-links {
+            margin: 15px 0;
+        }
+
+        .contact-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .membership-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dr. Indu Gupta</h1>
+        <p class="subtitle">Scientist &nbsp;|&nbsp; Researcher &nbsp;|&nbsp; Leadership Specialist</p>
+        <p class="credentials">M.Tech &nbsp;|&nbsp; Ph.D. &nbsp;|&nbsp; MBA</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contributions">Contributions</a></li>
+            <li><a href="#memberships">Memberships</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="profile">
+            <h2>Profile</h2>
+            <p class="profile-summary">
+                A distinguished scientist of national repute with over 35 years of leadership experience in advanced research, scientific administration, and institutional governance. Superannuated from the Defence Research and Development Organisation (DRDO) as Scientist &apos;G&apos;, the highest scientist grade, after contributing extensively to mission-critical national programmes.
+            </p>
+            <p class="profile-summary">
+                Career began at Bharat Electronics Limited (BEL), working on radar technologies, and subsequently joined DRDO in 1986. Over an accomplished tenure, held important scientific and managerial roles across premier DRDO establishments including SSPL, Dte of Standardization, DRDO Headquarters, LASTEC, and CEPTAM.
+            </p>
+            <p class="profile-summary">
+                <strong>A rare blend of technical expertise, policy insight, administrative leadership, and strategic decision-making.</strong>
+            </p>
+        </section>
+
+        <section id="expertise">
+            <h2>Key Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h4>Technical Domains</h4>
+                    <ul>
+                        <li>Radar systems &amp; advanced electronics</li>
+                        <li>VLSI design tools &amp; software development</li>
+                        <li>Scientific infrastructure &amp; lab automation</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h4>Management &amp; Operations</h4>
+                    <ul>
+                        <li>Project management &amp; financial governance</li>
+                        <li>Institutional planning &amp; HR development</li>
+                        <li>IT governance &amp; audit systems</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h4>Strategic Leadership</h4>
+                    <ul>
+                        <li>Policy implementation &amp; ISO compliance</li>
+                        <li>Quality assurance &amp; audit systems</li>
+                        <li>Capacity-building &amp; STEM education</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="job-title">Scientist &apos;G&apos; (Retired)</div>
+                <div class="company">Defence Research and Development Organisation (DRDO)</div>
+                <div class="duration">1986 &ndash; 2022</div>
+                <ul>
+                    <li>Led and contributed to major DRDO programmes in electronics, VLSI, and systems engineering</li>
+                    <li>Developed and customized critical software tools for VLSI design supporting strategic projects</li>
+                    <li>Spearheaded large-scale laboratory automation and established key science &amp; IT infrastructure</li>
+                    <li>Strengthened core organisational processes: project sanctions, budgeting, documentation, audit, IT governance, and ISO compliance</li>
+                    <li>Pivotal role in Planning &amp; Coordination, Human Resource Management, and IT-enabled service delivery across DRDO establishments</li>
+                </ul>
+                <div style="margin-top: 15px;">
+                    <strong>Recognition &amp; Awards:</strong>
+                    <div>
+                        <span class="achievement-badge">Lab Scientist of the Year</span>
+                        <span class="achievement-badge">Commendation Certificates</span>
+                        <span class="achievement-badge">Meritorious Service Awards</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Engineer &ndash; Radar Technologies</div>
+                <div class="company">Bharat Electronics Limited (BEL)</div>
+                <div class="duration">Early Career</div>
+                <ul>
+                    <li>Worked in the strategic area of radar systems, gaining foundational expertise in advanced electronic and defence technologies</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contributions">
+            <h2>Academic &amp; Professional Contributions</h2>
+            <h3>Research Publications</h3>
+            <p>27+ research papers published in reputed national and international journals, demonstrating sustained research excellence across multiple domains.</p>
+
+            <h3>Science Outreach</h3>
+            <p>Authored a series of science books (KG&ndash;V) to foster foundational STEM learning among young students, extending expertise beyond the professional realm.</p>
+
+            <h3>Academic Mentoring</h3>
+            <p>Mentored 400+ engineering students as part of structured technical training and internship programmes, developing the next generation of technical talent.</p>
+        </section>
+
+        <section id="memberships">
+            <h2>Professional Memberships</h2>
+            <div class="membership-list">
+                <div class="membership-item">
+                    <strong>IETE</strong>
+                    <p>Fellow, Institution of Electronics and Telecommunication Engineers</p>
+                </div>
+                <div class="membership-item">
+                    <strong>ISE</strong>
+                    <p>Life Member, Institute of Standards Engineers</p>
+                </div>
+                <div class="membership-item">
+                    <strong>CSI</strong>
+                    <p>Life Member, Computer Society of India</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dr. Indu Gupta. All rights reserved.</p>
+        <p>Biodata &nbsp;|&nbsp; Professional Profile &nbsp;|&nbsp; Career Overview</p>
+    </footer>
+</body>
+</html>
